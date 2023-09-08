@@ -1,0 +1,179 @@
+flow-key : {
+    "nodes": [
+        {
+            "width": 160,
+            "height": 56,
+            "id": "node_0",
+            "type": "startnode",
+            "position": {
+                "x": -595.4356090858619,
+                "y": 258.73262472983
+            },
+            "data": {
+                "label": "startnode"
+            },
+            "selected": false,
+            "positionAbsolute": {
+                "x": -595.4356090858619,
+                "y": 258.73262472983
+            },
+            "dragging": false
+        },
+        {
+            "width": 160,
+            "height": 60,
+            "id": "node_1",
+            "type": "textnode",
+            "position": {
+                "x": 25.99214895826138,
+                "y": 430.52076544414325
+            },
+            "data": {
+                "label": "hi there "
+            },
+            "selected": true,
+            "dragging": false,
+            "positionAbsolute": {
+                "x": 25.99214895826138,
+                "y": 430.52076544414325
+            }
+        },
+        {
+            "width": 160,
+            "height": 56,
+            "id": "node_2",
+            "type": "imagenode",
+            "position": {
+                "x": -282.31230362926505,
+                "y": 450.5266141997089
+            },
+            "data": {
+                "label": "http:url"
+            },
+            "selected": false,
+            "positionAbsolute": {
+                "x": -282.31230362926505,
+                "y": 450.5266141997089
+            },
+            "dragging": false
+        },
+        {
+            "width": 160,
+            "height": 56,
+            "id": "node_3",
+            "type": "imagenode",
+            "position": {
+                "x": 344.34388300858706,
+                "y": 697.3035792503755
+            },
+            "data": {
+                "label": "http:url"
+            },
+            "selected": false,
+            "positionAbsolute": {
+                "x": 344.34388300858706,
+                "y": 697.3035792503755
+            },
+            "dragging": false
+        },
+        {
+            "width": 160,
+            "height": 56,
+            "id": "node_4",
+            "type": "startnode",
+            "position": {
+                "x": 21.665555599291935,
+                "y": 571.4949682362478
+            },
+            "data": {
+                "label": "EVENT"
+            },
+            "selected": false,
+            "positionAbsolute": {
+                "x": 21.665555599291935,
+                "y": 571.4949682362478
+            },
+            "dragging": false
+        },
+        {
+            "width": 160,
+            "height": 56,
+            "id": "node_5",
+            "type": "startnode",
+            "position": {
+                "x": -579.2764595566349,
+                "y": 871.8674589286924
+            },
+            "data": {
+                "label": "startnode"
+            },
+            "selected": false,
+            "positionAbsolute": {
+                "x": -579.2764595566349,
+                "y": 871.8674589286924
+            },
+            "dragging": false
+        },
+        {
+            "width": 160,
+            "height": 56,
+            "id": "node_6",
+            "type": "audionode",
+            "position": {
+                "x": -223.02785683436585,
+                "y": 1005.136510020283
+            },
+            "data": {
+                "label": "audionode"
+            },
+            "selected": false,
+            "positionAbsolute": {
+                "x": -223.02785683436585,
+                "y": 1005.136510020283
+            },
+            "dragging": false
+        }
+    ],
+    "edges": [
+        {
+            "source": "node_0",
+            "sourceHandle": "b",
+            "target": "node_1",
+            "targetHandle": "a",
+            "id": "reactflow__edge-node_0b-node_1a"
+        },
+        {
+            "source": "node_0",
+            "sourceHandle": "b",
+            "target": "node_2",
+            "targetHandle": "a",
+            "id": "reactflow__edge-node_0b-node_2a"
+        },
+        {
+            "source": "node_2",
+            "sourceHandle": "b",
+            "target": "node_4",
+            "targetHandle": "a",
+            "id": "reactflow__edge-node_2b-node_4a"
+        },
+        {
+            "source": "node_4",
+            "sourceHandle": "b",
+            "target": "node_3",
+            "targetHandle": "a",
+            "id": "reactflow__edge-node_4b-node_3a"
+        },
+        {
+            "source": "node_5",
+            "sourceHandle": "b",
+            "target": "node_6",
+            "targetHandle": "a",
+            "id": "reactflow__edge-node_5b-node_6a"
+        }
+    ],
+    "viewport": {
+        "x": 884.2828501421259,
+        "y": -220.98827609596242,
+        "zoom": 0.9564555856123406
+    }
+}

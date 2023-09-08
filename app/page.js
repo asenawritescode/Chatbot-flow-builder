@@ -22,20 +22,27 @@ import ReactFlow, {
 import "reactflow/dist/base.css";
 
 import "../tailwind.config.js";
+
 import Sidebar from "./component/sidebar";
+
+import StartNode from "./component/StartNode";
 import TextNode from "./component/TextNode";
+import ImageNode from "./component/ImageNode";
+import VideoNode from "./component/VideoNode";
+import PdfNode from "./component/PdfNode";
+import AudioNode from "./component/AudioNode";
 
 // Key for local storage
 const flowKey = "flow-key";
 
 // Initial node setup
 const initialNodes = [
-  {
-    id: "1",
-    type: "textnode",
-    data: { label: "input nodes" },
-    position: { x: 250, y: 5 },
-  },
+  // {
+  //   id: "1",
+  //   type: "startnode",
+  //   data: { label: "incoming message" },
+  //   position: { x: 250, y: 5 },
+  // },
 ];
 
 let id = 0;
@@ -47,7 +54,12 @@ const App = () => {
   // Define custom node types
   const nodeTypes = useMemo(
     () => ({
+      startnode: StartNode,
       textnode: TextNode,
+      imagenode: ImageNode,
+      videonode: VideoNode,
+      pdfnode: PdfNode,
+      audionode: AudioNode,
     }),
     []
   );
@@ -55,6 +67,7 @@ const App = () => {
   // States and hooks setup
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [nodeCount, setNodeCount] = useState(0);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const [selectedElements, setSelectedElements] = useState([]);
@@ -127,8 +140,10 @@ const App = () => {
           "Error: More than one node has an empty target handle or there are unconnected nodes."
         );
       } else {
+        // stringify
         const flow = reactFlowInstance.toObject();
-        localStorage.setItem(flowKey, JSON.stringify(flow));
+        console.log(`${flowKey} : ${JSON.stringify(flow)}`)
+        // localStorage.setItem(flowKey, JSON.stringify(flow));
         alert("Save successful!"); // Provide feedback when save is successful
       }
     }
@@ -176,6 +191,18 @@ const App = () => {
       if (typeof type === "undefined" || !type) {
         return;
       }
+      console.log("Node Count", nodeCount)
+      console.log("Type: ", type);
+
+      // Bug here, how can we remove the node if the type is not "startnode"
+      if (nodeCount === 0 && type !== "startnode") {
+        console.log("Demo",event)
+        alert(
+          "Error: You must have at least one start node."
+        );
+
+        return;
+      };
 
       const position = reactFlowInstance.project({
         x: event.clientX - reactFlowBounds.left,
@@ -188,11 +215,18 @@ const App = () => {
         data: { label: `${type}` },
       };
 
+      setNodeCount(nodeCount + 1);
+
       console.log("Node created: ", newNode);
       setNodes((nds) => nds.concat(newNode));
     },
-    [reactFlowInstance]
+    [reactFlowInstance, nodeCount]
   );
+
+  const onClear = () => {
+    setNodes([]); // Clear the nodes array
+    setEdges([]); // Clear the edges arra
+  }
 
   const rfStyle = {
     backgroundColor: "#ffffff",
@@ -235,10 +269,16 @@ const App = () => {
               save flow
             </button>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="mr -2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={onRestore}
             >
               restore flow
+            </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={onClear}
+            >
+              clear canvas
             </button>
           </Panel>
         </ReactFlow>

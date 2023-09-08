@@ -30,6 +30,12 @@ export default function Sidebar({
             onChange={handleInputChange}
           />
           <button
+            className="mr-2 mt-4 bg-blue-500 text-white rounded p-2 hover:bg-blue-600"
+            onClick={() => setSelectedElements([])}
+          >
+            Remove
+          </button>
+          <button
             className="mt-4 bg-blue-500 text-white rounded p-2 hover:bg-blue-600"
             onClick={() => setSelectedElements([])}
           >
@@ -39,13 +45,48 @@ export default function Sidebar({
       ) : (
         //node panel
         <>
-          <h3 className="text-xl mb-4 text-blue-900">Nodes Panel</h3>
+          <h3 className="text-xl mb-4 text-blue-900">Response Nodes</h3>
           <div
-            className="bg-white p-3 border-2 border-blue-500 rounded cursor-move flex justify-center items-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-200"
+            className="bg-white p-3 mb-3 border-2 border-blue-500 rounded cursor-move flex justify-center items-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-200"
+            onDragStart={(event) => onDragStart(event, "startnode")}
+            draggable
+          >
+            Start Node
+          </div>
+          <div
+            className="bg-white p-3 mb-3 border-2 border-blue-500 rounded cursor-move flex justify-center items-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-200"
             onDragStart={(event) => onDragStart(event, "textnode")}
             draggable
           >
-            Message Node
+            Text Response
+          </div>
+          <div
+            className="bg-white p-3 mb-3 border-2 border-blue-500 rounded cursor-move flex justify-center items-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-200"
+            onDragStart={(event) => onDragStart(event, "imagenode")}
+            draggable
+          >
+            Image Response
+          </div>
+          <div
+            className="bg-white p-3 mb-3 border-2 border-blue-500 rounded cursor-move flex justify-center items-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-200"
+            onDragStart={(event) => onDragStart(event, "videonode")}
+            draggable
+          >
+            Video Response
+          </div>
+          <div
+            className="bg-white p-3 mb-3 border-2 border-blue-500 rounded cursor-move flex justify-center items-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-200"
+            onDragStart={(event) => onDragStart(event, "pdfnode")}
+            draggable
+          >
+            PDF Response
+          </div>
+          <div
+            className="bg-white p-3 mb-3 border-2 border-blue-500 rounded cursor-move flex justify-center items-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-200"
+            onDragStart={(event) => onDragStart(event, "audionode")}
+            draggable
+          >
+            Audio Response
           </div>
         </>
       )}
