@@ -4,5 +4,9 @@ Main Canvas:
     ✔ Means to limit first node @done(23-09-08 10:44)
 
 Sidebar: 
-    ☐ Update Remove button 
+    ✔ Update Remove button @done(23-09-08 23:14)
     ☐ Add text form
+
+
+-The flow of the chatbot always has to have a trigger
+-Add a keyword to listen for text messages.  

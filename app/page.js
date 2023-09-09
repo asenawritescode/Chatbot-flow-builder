@@ -269,7 +269,7 @@ const App = () => {
               save flow
             </button>
             <button
-              className="mr -2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={onRestore}
             >
               restore flow
@@ -286,6 +286,8 @@ const App = () => {
 
       <Sidebar
         nodeName={nodeName}
+        setNodeCount = {setNodeCount}
+        setNodes={ setNodes }
         setNodeName={setNodeName}
         selectedNode={selectedElements[0]}
         setSelectedElements={setSelectedElements}
